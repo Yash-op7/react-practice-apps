@@ -13,7 +13,7 @@ const generateRandomColor = function() {
         blue = ' '.concat(blue);
     }
     color = color.concat(red, green, blue);
-    console.log(color);
+    .log(color);
     return color;
 }
 

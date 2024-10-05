@@ -13,8 +13,24 @@ const randomColorGenerator = function () {
     blue = "0".concat(blue);
   }
   color = color.concat(red, green, blue);
-  console.log(color);
   return color;
+};
+
+export const invertColor = function (hex) {
+  let color = hex.replace("#", "");
+
+  // Parse red, green, and blue as integers
+  let red = parseInt(color.substring(0, 2), 16);
+  let green = parseInt(color.substring(2, 4), 16);
+  let blue = parseInt(color.substring(4, 6), 16);
+
+  // Invert the colors
+  red = (255 - red).toString(16).padStart(2, "0");
+  green = (255 - green).toString(16).padStart(2, "0");
+  blue = (255 - blue).toString(16).padStart(2, "0");
+
+  // Combine the inverted values back into a hex color string
+  return `#${red}${green}${blue}`;
 };
 
 export default randomColorGenerator;
